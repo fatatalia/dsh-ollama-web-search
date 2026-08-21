@@ -1,0 +1,12 @@
+# dsh-ollama-web-search bundle patch
+# 1) 插入 provider 插件
+# 2) 把 web 服务的 searchProvider 切到 ollama-web-search
+#    （patch 整段替换 config，web 的 Config 只有 searchProvider/fetchProvider 两个 key，需重述）
+- insert:
+    - id: dsh-ollama-web-search
+      name: dsh-ollama-web-search
+
+- id: web
+  config:
+    searchProvider: ollama-web-search
+    fetchProvider: ""
